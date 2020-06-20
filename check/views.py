@@ -21,31 +21,6 @@ def create(request):
 	post_form = PostForm()
 	penyakit = None
 
-	if post_form.is_valid():
-		print("udin")
-		penyakit = detect_medical(form.data[['Merasa_Lelah_Berlebihan','Badan_Terasa_Sakit','Demam_Dengan_Intensitas_Ringan_Hingga_Berat', 
-    		'Badan_Mengggigil','Radang_Tenggorokan','Sakit_Kepala','Hidung_Tersumbat','Batuk_Berdahak','Batuk_Darah','Berkeringat_Pada_Malam_Hari',
-    		'Kehilangan_Nafsu_Makan','Berat_Badan_Yang_Turun_Tanpa_Sebab','Pembesaran_Kelenjar_Getah_Bening_Di_Leher','Batuk','Nafas_Berbunyi',
-    		'Sesak_Nafas','Dada_Sesak','Suara_Sengau','Nafas_Tersedu_Sedu','Diare','Mual','Penurunan_Kesadaran','Nyeri_Ketika_Batuk']])
-	else:
-		print("adin")
-		penyakit = detect_medical(post_form.data['Nyeri_Ketika_Batuk'])
-	context = {
-		'page_title':'Create Post',
-		'post_form':post_form,
-		'penyakit':penyakit
-	}
-
-	return render(request, 'check/create.html',context)
-"""
-	if post_form.is_valid():
-		print("najibbbbb")
-		penyakit = detect_medical(post_form.data[['Merasa_Lelah_Berlebihan','Badan_Terasa_Sakit','Demam_Dengan_Intensitas_Ringan_Hingga_Berat', 
-    		'Badan_Mengggigil','Radang_Tenggorokan','Sakit_Kepala','Hidung_Tersumbat','Batuk_Berdahak','Batuk_Darah','Berkeringat_Pada_Malam_Hari',
-    		'Kehilangan_Nafsu_Makan','Berat_Badan_Yang_Turun_Tanpa_Sebab','Pembesaran_Kelenjar_Getah_Bening_Di_Leher','Batuk','Nafas_Berbunyi',
-    		'Sesak_Nafas','Dada_Sesak','Suara_Sengau','Nafas_Tersedu_Sedu','Diare','Mual','Penurunan_Kesadaran','Nyeri_Ketika_Batuk']])
-    print(penyakit)
-
 	if request.method == "POST":
 		PostModel.objects.create(
 			Nama	= request.POST['Nama'],
@@ -78,6 +53,26 @@ def create(request):
 			Nyeri_Ketika_Batuk = request.POST['Nyeri_Ketika_Batuk'],
 			)
 
+		if post_form.is_valid():
+			print("udin")
+			penyakit = detect_medical(form.data['Merasa_Lelah_Berlebihan','Badan_Terasa_Sakit','Demam_Dengan_Intensitas_Ringan_Hingga_Berat', 
+	    		'Badan_Mengggigil','Radang_Tenggorokan','Sakit_Kepala','Hidung_Tersumbat','Batuk_Berdahak','Batuk_Darah','Berkeringat_Pada_Malam_Hari',
+	    		'Kehilangan_Nafsu_Makan','Berat_Badan_Yang_Turun_Tanpa_Sebab','Pembesaran_Kelenjar_Getah_Bening_Di_Leher','Batuk','Nafas_Berbunyi',
+	    		'Sesak_Nafas','Dada_Sesak','Suara_Sengau','Nafas_Tersedu_Sedu','Diare','Mual','Penurunan_Kesadaran','Nyeri_Ketika_Batuk'])
+
         return HttpResponseRedirect("/check")
+
+
+	
+	context = {
+		'page_title':'Create Post',
+		'post_form':post_form,
+		'penyakit':penyakit
+	}
+
+	return render(request, 'check/create.html',context)
+"""
+
+
 """
 	
