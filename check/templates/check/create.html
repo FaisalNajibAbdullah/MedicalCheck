@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{# load flags templatetag in the top of your file #}
+{% load flags %}
+
+{% block page_title %}
+    {{page_title}}
+{% endblock page_title %}
+
+
+{% block content %}
+    <div class="container">
+        <h1>{{page_title}}</h1>
+        {% load crispy_forms_tags %}
+        <form method = "POST">
+            <div class="form-group">
+                {{ post_form|crispy }}
+                {% csrf_token %}
+            </div>
+            <div class="form-group">
+                <input type="submit" class='btn btn-primary' value="Submit" />
+                {% if penyakit %}
+                {# use the flag_by_penyakit template tag #}
+                {% flag_by_penyakit penyakit %}
+                {% endif %}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sistem Pakar</title>
+    </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <body>
+        <div class="container">
+        <h1>Please Fill In The Following Form !</h1>
+        {% load crispy_forms_tags %}
+        <form method="POST">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <input type="submit" class='btn btn-primary' value="Submit" />
+        </form>
+    </body>
+</html>
+-->

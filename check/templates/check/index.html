@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{page_title}}
+{% endblock page_title %}
+
+
+{% block content %}
+    <h1>{{page_title}}</h1>
+    {% for post in posts %}
+    	<p>{{post.Nama}}</p>
+    	<p>{{post.Alamat}}</p>
+    	<p>{{post.Pekerjaan}}</p>
+    	<P>{{post.No_Telepon}}</P>
+    	<p>{{post.Email}}</p>
+    	<table style="width:300%">	
+    		<tr>
+    			<th>Merasa Lelah Berlebihan</th>
+    			<th>Badan Terasa Sakit</th>
+    			<th>Demam Dengan Intensitas Ringan Hingga Berat</th>
+    			<th>Badan Menggigil</th>
+    			<th>Radang Tenggorokan</th>
+    			<th>Sakit Kepala</th>
+    			<th>Batuk Berdahak</th>
+    			<th>Batuk Darah</th>
+    			<th>Berkeringat Pada Malam Hari</th>
+    			<th>Kehilangan Nafsu Makan</th>
+    			<th>Berat Badan Yang Turun Tanpa Sebab</th>
+    			<th>Pembesaran Kelenjar Getah Bening Di Leher</th>
+    			<th>Batuk</th>
+    			<th>Sesak Nafas</th>
+    			<th>Dada Sesak</th>
+    			<th>Suara Sengau</th>
+    			<th>Diare</th>
+    			<th>Mual</th>
+    			<th>Nyeri Ketika Batuk</th>
+    		</tr>
+    		<tr>
+    			<td>{{post.Merasa_Lelah_Berlebihan}}</td>
+    			<td>{{post.Badan_Terasa_Sakit}}</td>
+    			<td>{{post.Demam_Dengan_Intensitas_Ringan_Hingga_Berat}}</td>
+    			<td>{{post.Badan_Mengggigil}}</td>
+    			<td>{{post.Radang_Tenggorokan}}</td>
+    			<td>{{post.Sakit_Kepala}}</td>
+    			<td>{{post.Hidung_Tersumbat}}</td>
+    			<td>{{post.Batuk_Berdahak}}</td>
+    			<td>{{post.Batuk_Darah}}</td>
+    			<td>{{post.Berkeringat_Pada_Malam_Hari}}</td>
+    			<td>{{post.Kehilangan_Nafsu_Makan}}</td>
+    			<td>{{post.Berat_Badan_Yang_Turun_Tanpa_Sebab}}</td>
+    			<td>{{post.Pembesaran_Kelenjar_Getah_Bening_Di_Leher}}</td>
+    			<td>{{post.Batuk}}</td>
+    			<td>{{post.Sesak_Nafas}}</td>
+    			<td>{{post.Dada_Sesak}}</td>
+    			<td>{{post.Suara_Sengau}}</td>
+    			<td>{{post.Diare}}</td>
+    			<td>{{post.Nyeri_Ketika_Batuk}}</td>
+    		</tr>
+    	</table>
+    {% endfor %}
+{% endblock content %}
